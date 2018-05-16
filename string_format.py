@@ -10,9 +10,11 @@ def f_method(string):
     print(f"This prints your string - {string} - using the f-string method.")
 
 
-def f_method_with_dictionary(**args):
-    for arg in args:
-        print(f"This element is {args[arg]}")
+def f_method_with_dictionary(*args,**kwargs):
+    for kwarg in kwargs:
+        print(kwarg, kwargs[kwarg])
+
+    print(f"The user {user}'s status is {status}")
 
 
 if __name__ == "__main__":
