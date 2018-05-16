@@ -8,7 +8,7 @@ def print_script_name():
 def print_args():
     i = 1
     while i <= len(sys.argv)-1:
-        print(sys.argv[i])
+        print("Arg ", i, ":", sys.argv[i])
         i += 1
 
 
