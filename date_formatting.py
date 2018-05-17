@@ -1,16 +1,44 @@
 
-import datetime
+import datetime as dt
 
 
-def return_now():
-    return datetime.datetime.now()
+def get_now():
+    return dt.datetime.now()
 
 def time_since_millenium(time_object):
-    delta = time_object - datetime.datetime(2000, 1, 1)
+    delta = time_object - dt.datetime(2000, 1, 1)
     return delta
 
 def one_day_ago(time_object):
-    return time_object - datetime.timedelta(1)
+    return time_object - dt.timedelta(1)
+
+def mdy_backslash(time_object):
+
+
+def dmy_backslash(time_object):
+
+
+def mdyhs_backslash(time_object):
+
+
+def dmyhs_backslash(time_object):
+
+
+def mdy_dash(time_object):
+
+
+def dmy_dash(time_object):
+
+
+def date_from_mdy_backslash(string):
+
+
+def date_from_dmy_backslash(string):
+
+
+def date_from_mdyhs_backslash(string):
+
+
 
 
 if __name__ == "__main__":
