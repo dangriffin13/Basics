@@ -16,22 +16,28 @@ def mdy_backslash(time_object):
     try:
         #check for time_object
 
+    return time_object.strftime("%m/%d/%Y")
 
 def dmy_backslash(time_object):
     try:
         #check for time_object
+    return time_object.strftime("%d/%m/%Y")
 
 def mdyhs_backslash(time_object):
     try:
         #check for time_object
+    return time_object.strftime("%m/%d/%Y %H:%M")
 
 def dmyhs_backslash(time_object):
     try:
         #check for time_object
+    return time_object.strftime("%d/%m/%Y %H:%M")
 
 def mdy_dash(time_object):
     try:
         #check for time_object
+    return time_object.strftime("%m-%d-%Y")
+
 
 def dmy_dash(time_object):
     try:
