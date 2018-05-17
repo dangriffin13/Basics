@@ -1,9 +1,15 @@
 
 
-def linear_search(arr):
-    
+def linear_search(arr, value):
+    cnt = 0
+    while cnt < len(arr):
+        if value == arr[cnt]:
+            return cnt
+        cnt += 1
+    return "Value not found."
 
-def binary_search(arr):
+
+def binary_search(arr, value):
 
 
 def bubble_sort(arr):
