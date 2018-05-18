@@ -23,12 +23,12 @@ def dmy_backslash(time_object):
         #check for time_object
     return time_object.strftime("%d/%m/%Y")
 
-def mdyhs_backslash(time_object):
+def mdyhm_backslash(time_object):
     try:
         #check for time_object
     return time_object.strftime("%m/%d/%Y %H:%M")
 
-def dmyhs_backslash(time_object):
+def dmyhm_backslash(time_object):
     try:
         #check for time_object
     return time_object.strftime("%d/%m/%Y %H:%M")
