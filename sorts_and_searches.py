@@ -29,7 +29,21 @@ def binary_search(arr, value): #O(log n)
 
 
 def bubble_sort(arr):
+    for i in range(len(arr)):
+        j = 0
+        while j < len(arr)-i-1:
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            j += 1
 
+
+
+    #confirmation
+    while i < len(arr):
+        if arr[i] <= arr[i+1]:
+            i+=1
+        else:
+            raise Exception("Not in ascending order (position", i, ")")
 
 def insertion_sort(arr):
 
