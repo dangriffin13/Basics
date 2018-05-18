@@ -42,15 +42,19 @@ def mdy_dash(time_object):
 def dmy_dash(time_object):
     try:
         #check for time_object
+    return time_object.strftime("%d-%m-%Y")
+
 
 def date_from_mdy_backslash(string):
+    return dt.strptime(string, "%m/%d/%Y")
 
 
 def date_from_dmy_backslash(string):
+    return dt.strptime(string, "%d/%m/%Y")
 
 
 def date_from_mdyhs_backslash(string):
-
+    return dt.strptime(string, "%d/%m/%Y %H:%M")
 
 
 
