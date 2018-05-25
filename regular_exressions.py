@@ -8,8 +8,10 @@ def regex_basic_email_validator(string):
 
 
 def regex_password_validator(string):
-    return re.match(r"[A-Z]{1,}[a-z]{1,}[0-9]{1,}", string)
-
+    if re.match(r"[A-Za-z0-9]{8,}", string):
+        return True
+    else:
+        return False
 
 def regex_url_validator(string):
     pass
