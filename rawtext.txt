@@ -1,0 +1,6 @@
+Row1
+Row2
+Row3
+Pipe delimited row4|pipe delimited row4 i=2|pipe delimited row4 i=3|pipe delimited row4 i=4
+Comma delimited row 5, comma delimited row 5 i=2
+Row 6 is a sentence with no delimiters
