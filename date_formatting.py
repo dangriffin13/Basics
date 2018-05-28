@@ -13,29 +13,18 @@ def one_day_ago(time_object):
     return time_object - dt.timedelta(1)
 
 def mdy_backslash(time_object):
-    try:
-        #check for time_object
-
     return time_object.strftime("%m/%d/%Y")
 
 def dmy_backslash(time_object):
-    try:
-        #check for time_object
     return time_object.strftime("%d/%m/%Y")
 
 def mdyhm_backslash(time_object):
-    try:
-        #check for time_object
     return time_object.strftime("%m/%d/%Y %H:%M")
 
 def dmyhm_backslash(time_object):
-    try:
-        #check for time_object
     return time_object.strftime("%d/%m/%Y %H:%M")
 
 def mdy_dash(time_object):
-    try:
-        #check for time_object
     return time_object.strftime("%m-%d-%Y")
 
 
