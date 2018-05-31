@@ -19,6 +19,9 @@ def key_error(key, data=None):
         print("That key is not in your data")
 
 
+def assertion_error():
+    pass
+
 
 
 def type_error_date(string):
@@ -32,3 +35,4 @@ def type_error_int(number):
 
 if __name__ == "__main__":
     print("Try...Except is available")
+    

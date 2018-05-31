@@ -1,4 +1,4 @@
-import csv
+import csv, json
 
 def read_from_text(filename):
     f = open(filename, 'r')
@@ -26,6 +26,11 @@ def append_to_text(filename, content):
     #f.writelines(['row5\n','row6\n'])
     f.close()
 
+def read_json(data):
+    pass
+
+def write_json_to_text(filename, content):
+    pass
 
 if __name__ == "__main__":
     print("Read/Write Operations are available")
