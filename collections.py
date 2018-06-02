@@ -3,8 +3,8 @@ import collections
 
 result_order = ['Rotich', 'Lilesa','Rupp','Ghebreslassie','Simbu','Ward','Abraham']
 
-marathoners = {'Rotich':'Kenya', 'Lilesa':'Ethiopia', 'Rupp':'USA',
-    'Ghebreslassie':'Eritrea','Simbu':'Tanzania','Ward':'USA','Abraham':'Switzerland'}
+marathoners = {'Ghebreslassie':'Eritrea','Simbu':'Tanzania','Rotich':'Kenya',
+    'Rupp':'USA','Ward':'USA', 'Lilesa':'Ethiopia','Abraham':'Switzerland'}
 
 results_dict = collections.OrderedDict()
 
@@ -20,6 +20,6 @@ if __name__ == "__main__":
     print("Marathoners:")
     print(marathoners)
     print("Marathon results:")
-    print([name for names in result_order])
+    print(result_order)
     print("Ordered Dictionary of results:")
     print(results_dict)

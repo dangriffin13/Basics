@@ -21,8 +21,9 @@ ascii_lowercase = {i:chr(i) for i in ascii_table.keys() if chr(i) == chr(i).lowe
 if __name__ == "__main__":
     print('odds', odds(12))
     print('evens', evens(11))
+    print('nested', nested)  
     print('consonants', consonants)
     print('ord of vowels', [ord(char) for char in vowels]) 
-    print('nested', nested)   
+     
 
 

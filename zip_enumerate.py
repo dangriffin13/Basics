@@ -22,3 +22,6 @@ if __name__ == "__main__":
 
     print('list 1 (variable name arr1): ', arr1)
     print('list 2 (variable name arr2): ', arr2)
+
+    enumerate_inputs(arr1)
+    zip_two_inputs(arr1,arr2)
