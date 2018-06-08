@@ -14,6 +14,14 @@ for name in result_order:
 
 
 
+with open('gettysburg_address.txt') as f:
+    words = [word for line in f for word in line.split()]
+
+lincolns_words = collections.Counter(words)
+
+top_10 = lincolns_words.most_common(10)
+
+
 if __name__ == "__main__":
     print("Collections file is running")
 
@@ -23,3 +31,5 @@ if __name__ == "__main__":
     print(result_order)
     print("Ordered Dictionary of results:")
     print(results_dict)
+    print("Ten most used words in Gettysburg Address: ")
+    print(top_10)
