@@ -29,10 +29,10 @@ def mdy_dash(time_object):
 
 
 def dmy_dash(time_object):
-    try:
-        #check for time_object
-    return time_object.strftime("%d-%m-%Y")
-
+    try: #check for time_object
+        return time_object.strftime("%d-%m-%Y")
+    except TypeError:
+        print('Your input cannot be converted into dd-mm-yyyy format')
 
 def date_from_mdy_backslash(string):
     return dt.strptime(string, "%m/%d/%Y")

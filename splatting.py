@@ -2,6 +2,9 @@
 tri_args = ['first','second','third']
 tri_kwargs = {'one':'first','two':'second','three':'third'}
 
+three_vars = ['alpha','beta','gamma']
+a, b, c = *three_vars
+
 def receive_three_named_args(arg1, arg2, arg3):
     print('arg1: ', arg1)
     print('arg3: ', arg3)
