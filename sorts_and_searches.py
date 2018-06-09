@@ -53,6 +53,7 @@ def insertion_sort(arr):
             position = position - 1
         arr[position] = val
 
+
 def merge_sort(arr):
     if len(arr) > 1:
         mid = len(arr)//2
@@ -62,7 +63,29 @@ def merge_sort(arr):
         merge_sort(left)
         merge_sort(right)
 
-    
+        l_idx = 0 #left pointer
+        r_idx = 0 #right pointer
+        arr_idx = 0 #total array pointer
+
+        while l_idx < len(left) and r_idx < len(right):
+            if left[l_idx] < right[r_idx]:
+                arr[arr_idx] = left[l_idx]
+                l_idx += 1
+            else:
+                arr[arr_idx] = right[r_idx]
+                r_idx += 1
+            arr_idx += 1
+
+        while l_idx < len(left):
+            arr[arr_idx] = left[l_idx]
+            l_idx += 1
+            arr_idx += 1
+
+        while r_idx < len(right):
+            arr[arr_idx] = right[r_idx]
+            r_idx += 1
+            arr_idx += 1
+
 
 def quick_sort(arr):
 
