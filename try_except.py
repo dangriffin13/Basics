@@ -1,7 +1,7 @@
 
 import datetime
 
-def zero_division(dividend, divisor):
+def zero_divisor(dividend, divisor):
     try:
         result = dividend/divisor
         return result

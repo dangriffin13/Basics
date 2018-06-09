@@ -44,7 +44,7 @@ def bubble_sort(arr):
             raise Exception("Not in ascending order (position", i, ")")
 
 
-def insertion_sort(arr):
+def insertion_sort(arr): #not tested
     for i in range(1, len(arr)):
         val = arr[i]
         position = i
@@ -54,7 +54,7 @@ def insertion_sort(arr):
         arr[position] = val
 
 
-def merge_sort(arr):
+def merge_sort(arr): #not tested
     if len(arr) > 1:
         mid = len(arr)//2
         left = arr[:mid]
@@ -85,9 +85,35 @@ def merge_sort(arr):
             arr[arr_idx] = right[r_idx]
             r_idx += 1
             arr_idx += 1
+    return arr
+
+def quick_sort(arr): #still in progress
+ 
+    def _quick_sort(arr, start, end):
+        if start >= end:
+            return
+
+        pivot_val = arr[start]
+        left = start + 1
+        right = end
+        
+        while left < right:
+            if arr[left] < pivot_val:
+                left += 1
+            elif arr[right] > pivot_val:
+                right -= 1
+            else:
+                arr[left], arr[right] = arr[right], arr[left]
+                left += 1
+                right -= 1
+
+        arr[start], arr[left] = arr[left], arr[start]
+        
+        return _quick_sort(arr, start, left - 1)
+        return _quick_sort(arr, left + 1, end)
 
 
-def quick_sort(arr):
+    _quick_sort(arr, 0, len(arr)-1)
 
 
 def tim_sort(arr):
