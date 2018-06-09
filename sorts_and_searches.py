@@ -36,8 +36,6 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
             j += 1
 
-
-
     #confirmation
     while i < len(arr):
         if arr[i] <= arr[i+1]:
@@ -45,11 +43,26 @@ def bubble_sort(arr):
         else:
             raise Exception("Not in ascending order (position", i, ")")
 
-def insertion_sort(arr):
 
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        val = arr[i]
+        position = i
+        while position > 0 and arr[position-1] > val:
+            arr[position] = arr[position - 1] #swap with prior value
+            position = position - 1
+        arr[position] = val
 
 def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr)//2
+        left = arr[:mid]
+        right = arr[mid:]
 
+        merge_sort(left)
+        merge_sort(right)
+
+    
 
 def quick_sort(arr):
 
