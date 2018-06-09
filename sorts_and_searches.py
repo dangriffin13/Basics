@@ -89,7 +89,7 @@ def merge_sort(arr): #not tested
 
 def quick_sort(arr): #still in progress
  
-    def _quick_sort(arr, start, end):
+    def _quick_sort(arr, start, end): #the original array always gets passed rather than new slice
         if start >= end:
             return
 
@@ -109,7 +109,7 @@ def quick_sort(arr): #still in progress
 
         arr[start], arr[left] = arr[left], arr[start]
         
-        return _quick_sort(arr, start, left - 1)
+        return _quick_sort(arr, start, left - 1) #the original arr always get passed rather than new slice
         return _quick_sort(arr, left + 1, end)
 
 
