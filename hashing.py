@@ -3,8 +3,8 @@ import hashlib
 
 
 def sha_256(string):
-    stored_hash = hashlib.sha256(string):
-    print(stored_hash)
+    stored_hash = hashlib.sha256(string.encode()) #string literal must be encoded
+    return stored_hash.hexdigest()
 
 
 
