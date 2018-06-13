@@ -7,10 +7,10 @@ def simple_generator(n):
 
 #jeff knupp example
 
-def select_primes(values):
+def select_primes(values): #receive pre-existing list and return all primes
     return [n for n in values if is_prime(n)]
 
-def gen_primes(n):
+def gen_primes(n): #generate primes one at a time to preserve space
     while True: #the while loop continuously increments n and yields if prime
         if is_prime(n):
             yield n
@@ -36,8 +36,19 @@ def euler_10(n): #sum all primes >= n, <= 2,000,000
         if next_prime < 2000000:
             total += next_prime
         else:
-            return total
+            return total #return ends the for loop and the while in the generator
 
+#pass a value to a generator
+def primes_gt_successive_values(iterations, base):
+
+    prime_generator = gen_primes_from_base(base)
+
+    for power in range(iterations):
+        pass
+
+def gen_primes_from_base(n):
+    while True:
+        pass
 
 if __name__ == "__main__":
     print('Generators are ready to yield')
