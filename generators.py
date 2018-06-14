@@ -40,15 +40,17 @@ def euler_10(n): #sum all primes >= n, <= 2,000,000
 
 #pass a value to a generator
 def primes_gt_successive_values(iterations, base):
-
     prime_generator = gen_primes_from_base(base)
-
+    prime_generator.send(None) #initiate generator
     for power in range(iterations):
-        pass
+        print(prime_generator.send(base ** power))
+
 
 def gen_primes_from_base(n):
     while True:
-        pass
+        if is_prime(n):
+            n = yield n #this line receives the next value
+        n += 1
 
 if __name__ == "__main__":
     print('Generators are ready to yield')
