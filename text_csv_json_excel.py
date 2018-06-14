@@ -26,6 +26,24 @@ def append_to_text(filename, content):
     #f.writelines(['row5\n','row6\n'])
     f.close()
 
+
+json_data = {
+        "teams":[
+            {
+                "city": "New York",
+                "mascot": "Yankees"
+            },
+            {
+                "city": "Boston",
+                "mascot": "Red Sox"
+            }
+        ]
+}
+
+
+def json_api_wrapper(): #let's pull actual json of the web to practice
+    pass
+
 def read_json(data):
     pass
 
