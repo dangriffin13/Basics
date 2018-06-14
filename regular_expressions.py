@@ -14,11 +14,18 @@ def regex_password_validator(string):
         return False
 
 def regex_url_validator(string):
-    pass
+    if re.match(r"^[\\\:A-Za-z0-9_-]+\.[A-Za-z0-9]{2,3}", string):
+        return True
+    else:
+        return False
 
 
-def regex_find_html_tag(string):
-    pass
+def regex_find_html_tag(dom, tag):
+    pattern = r"<" + re.escape(tag) +">"
+    if re.match(pattern, dom):
+        return re.search(pattern, dom)
+    else:
+        return False
 
 
 if __name__ == "__main__":
