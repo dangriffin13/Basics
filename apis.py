@@ -61,6 +61,18 @@ def quandl_api_wrapper(database_code, dataset_code): #CME, CLH2018
     return response.json()
 
 
+#Census
+
+
+#Census American Community Survey
+base_url = 'https://api.census.gov/data'
+
+data_parameters = f'{year}/{dataset}'
+
+query = '?get='
+
+
+
 if __name__ == "__main__":
     print('APIs are ready')
     conditions = get_nyc_weather(baseurl, manhattan_woeid)
