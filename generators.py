@@ -49,7 +49,7 @@ def primes_gt_successive_values(iterations, base):
 def gen_primes_from_base(n):
     while True:
         if is_prime(n):
-            n = yield n #this line receives the next value
+            n = yield n #this line receives the next value and restarts the function
         n += 1
 
 if __name__ == "__main__":
@@ -60,4 +60,8 @@ if __name__ == "__main__":
     print('next(gen): ', next(gen))
     print('next(gen): ', next(gen))
     print('next(gen): ', next(gen))
+
+    print('Change iteration start point between yields:')
+    print('complex_gen = primes_gt_successive_values()')
+    complex_gen = primes_gt_successive_values(6, 10)
     
