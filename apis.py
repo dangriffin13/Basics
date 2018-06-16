@@ -12,7 +12,7 @@ consumer_key = 'dj0yJmk9V05KSmFNTGhXb0REJmQ9WVdrOVRrcHBRVmQwTkdrbWNHbzlNQS0tJnM9
 #client secret
 #consumer_secret
 
-baseurl = "https://query.yahooapis.com/v1/public/yql?q"
+y_base_url = "https://query.yahooapis.com/v1/public/yql?q"
 
 manhattan_woeid = 12761355
 nyc_woeid = 2459115
@@ -65,15 +65,17 @@ def quandl_api_wrapper(database_code, dataset_code): #CME, CLH2018
 
 
 #Census American Community Survey
-base_url = 'https://api.census.gov/data'
+census_base_url = 'https://api.census.gov/data'
 
-data_parameters = f'{year}/{dataset}'
+census_query = '?get='
 
-query = '?get='
+def append_dataset_parameters(*args)
+    dataset_parameters = ''.join(["/" + arg for arg in args])
 
+query_url = base_url + dataset_parameters + census_query
 
 
 if __name__ == "__main__":
     print('APIs are ready')
-    conditions = get_nyc_weather(baseurl, manhattan_woeid)
+    conditions = get_nyc_weather(y_base_url, manhattan_woeid)
     print(conditions['text'], conditions['temp'])
