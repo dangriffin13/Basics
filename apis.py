@@ -38,9 +38,7 @@ def get_nyc_forecast(baseurl, manhattan_woeid):
 
 #Quandl
 
-
 quandl_api_key = '&api_key=pWjXmxamqHYAMueDfPUE'
-
 
 
 """
@@ -63,6 +61,16 @@ def quandl_api_wrapper(database_code, dataset_code): #CME, CLH2018
 
 #Census
 
+"""
+Population Estimates and Community Survey URL:
+https://api.census.gov/data/YYYY/DATASET_CODE/
+    ?get=VARIABLE_1/...VARIABLE_n
+
+Time Series URL:
+https://api.census.gov/data/timeseries/
+    DATAESET_CODE_1/...DATSET_CODE_n/?get=VARIABLE_1,...VARIABLE_n
+    &YEAR=YYYY&MONTH=MM
+"""
 
 #Census American Community Survey
 census_base_url = 'https://api.census.gov/data'
