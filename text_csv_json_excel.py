@@ -62,8 +62,17 @@ def quandl_api_wrapper(database_code, dataset_code): #let's pull actual json off
     return response.json()
 
 
-def read_json(data):
-    pass
+def write_json(data):
+    with open('json_practice.json', 'w') as write_file:
+        json.dump(data, write_file)
+
+
+def read_json(filename):
+    #filename = 'json_practice.json'
+    with open(filename, 'r') as read_file:
+        data = json.load(read_file)
+    return data
+
 
 def write_json_to_text(filename, content):
     pass
@@ -75,7 +84,12 @@ if __name__ == "__main__":
     #values_read = read_from_text('read_text.txt')
     #print('Read from read_text.txt: ',values_read)
 
+    print('Write dictionary to json file')
+    write_json(json_data)
+
     print('Pull JSON from Quandl API')
     crude_oil = quandl_api_wrapper('CME','CLH2018')
+
+
     
 
