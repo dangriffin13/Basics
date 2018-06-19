@@ -18,19 +18,23 @@ manhattan_woeid = 12761355
 nyc_woeid = 2459115
 
 
-def get_nyc_weather(baseurl, manhattan_woeid):
-    query = f'select item.condition from weather.forecast where woeid={manhattan_woeid}&format=json'
-    url = f'{baseurl}={query}'
-    #return url
-    response = requests.get(url)
-    response = response.json()
+def get_weather(woeid):
+    query = f'select item.condition from weather.forecast where woeid={woeid}&format=json'
+    url = f'{y_base_url}={query}'
+    response = requests.get(url).json()
     conditions = response['query']['results']['channel']['item']['condition']
     return conditions
 
-def get_nyc_forecast(baseurl, manhattan_woeid):
+def get_nyc_weather():
+    query = f'select item.condition from weather.forecast where woeid={manhattan_woeid}&format=json'
+    url = f'{y_base_url}={query}'
+    response = requests.get(url).json()
+    conditions = response['query']['results']['channel']['item']['condition']
+    return conditions
+
+def get_nyc_forecast():
     query = f'select * from weather.forecast where woeid={manhattan_woeid}&format=json'
-    url = f'{baseurl}={query}'
-    #return url
+    url = f'{y_base_url}={query}'
     response = requests.get(url)
     return response.json()
 
@@ -70,6 +74,11 @@ Time Series URL:
 https://api.census.gov/data/timeseries/
     DATAESET_CODE_1/...DATSET_CODE_n/?get=VARIABLE_1,...VARIABLE_n
     &YEAR=YYYY&MONTH=MM
+
+Example, Housing Vacancies:
+https://api.census.gov/data/timeseries/eits/hv/?get=
+    cell_value,data_type_code,time_slot_id,error_data,category_code,seasonally_adj
+    &time=2016-Q1
 """
 
 #Census American Community Survey
@@ -77,13 +86,18 @@ census_base_url = 'https://api.census.gov/data'
 
 census_query = '?get='
 
-def append_dataset_parameters(*args)
-    dataset_parameters = ''.join(["/" + arg for arg in args])
+def append_dataset_codes(*args): #forward slash delimited
+    codes = ''.join(["/" + arg for arg in args])
+    return codes
+
+def append_dataset_variables(*args): #comma delimited
+    variables = ','.join([arg for arg in args])
+    return variables
 
 query_url = base_url + dataset_parameters + census_query
 
 
 if __name__ == "__main__":
     print('APIs are ready')
-    conditions = get_nyc_weather(y_base_url, manhattan_woeid)
+    conditions = get_nyc_weather()
     print(conditions['text'], conditions['temp'])
