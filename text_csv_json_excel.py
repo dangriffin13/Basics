@@ -18,7 +18,7 @@ def write_to_text(filename, content):
     #f = open('file_to_write.txt', 'w')
     #lines = ['Row1\n', 'Row2\n','Row3|Row3.1|Row3.2\n','Row4\n']
     #f.writelines(lines)
-    f.close
+    f.close()
 
 def append_to_text(filename, content):
     f = open(filename, 'a')
@@ -75,8 +75,18 @@ def read_json(filename):
 
 
 def write_json_to_text(filename, content):
-    pass
+    f = open(filename, 'w')
+    #content = nested_dictionary(content)
+    f.writelines(content)
+    f.close()
 
+def nested_dictionary(d):
+    for key, value in d.items():
+        if isinstance(value, dict):
+            print(key,":")
+            nested_dictionary(value)
+        else:
+            print('{0}: {1}'.format(key, value))
 
 if __name__ == "__main__":
     print("Read/Write Operations are available")
@@ -86,6 +96,7 @@ if __name__ == "__main__":
 
     print('Write dictionary to json file')
     write_json(json_data)
+    dat = read_json('json_practice.json')
 
     print('Pull JSON from Quandl API')
     crude_oil = quandl_api_wrapper('CME','CLH2018')
