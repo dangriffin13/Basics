@@ -76,17 +76,29 @@ def read_json(filename):
 
 def write_json_to_text(filename, content):
     f = open(filename, 'w')
-    #content = nested_dictionary(content)
+    content = concat_string_nested_dictionary(content)
     f.writelines(content)
     f.close()
 
-def nested_dictionary(d):
+def print_nested_dictionary(d):
     for key, value in d.items():
         if isinstance(value, dict):
             print(key,":")
-            nested_dictionary(value)
+            print_nested_dictionary(value)
         else:
             print('{0}: {1}'.format(key, value))
+
+def concat_string_nested_dictionary(d):
+    line = ""
+    for key, value in d.items()
+        if isinstance(value, dict):
+            line += "{" + key + ":/n"
+            concat_string_nested_dictionary(value)
+            line += "}"
+        else:
+            line += '{0}: {1}'.format(key, value) + "/n"
+
+
 
 if __name__ == "__main__":
     print("Read/Write Operations are available")
