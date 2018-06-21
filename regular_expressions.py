@@ -20,6 +20,12 @@ def regex_url_validator(string):
         return False
 
 
+def regex_phone_validator(phone_number): #American phone numbers
+    if re.match(r'^\+?d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$')
+        return True
+    else:
+        return False
+
 def regex_find_html_tag(dom, tag):
     pattern = r"<" + re.escape(tag) +">"
     if re.match(pattern, dom):
