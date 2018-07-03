@@ -45,6 +45,9 @@ def gen_random_normal_dist(n):
     return np.random.randn(n)
 
 
+def plot_bell_curve():
+    plt.hist(gen_random_normal_dist(200), bins=7, ec='black')
+    plt.show()
 
 if __name__ == "__main__":
     print("Numpy operations available")
@@ -54,6 +57,5 @@ if __name__ == "__main__":
     print(lin3)
 
     bell_curve = gen_random_normal_dist(200)
-    plt.hist(bell_curve,bins=7, ec='black')
-    plt.show()
+    
 
