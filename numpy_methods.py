@@ -11,7 +11,7 @@ evens = np.arange(1,10,2)
 
 
 #linear values, start, stop, number of values
-lin1 = [round(i, 3) for i in np.linspace(0,10,10)]
+lin1 = [round(i, 4) for i in np.linspace(0,10,10)]
 lin2 = np.linspace(0,10,9)
 lin3 = np.linspace(1,10,10)
 #lin4 = [round(i, 3) for i in np.linspace(0,11,10)]
@@ -49,6 +49,29 @@ def plot_bell_curve():
     plt.hist(gen_random_normal_dist(200), bins=7, ec='black')
     plt.show()
 
+
+rows = ['a','b','c','d','e']
+cols = [str(i) for i in range(1,6)]
+table = []
+
+for i in range(len(rows)):
+    for j in range(len(cols)):
+        table.append(rows[i] + cols[j])
+
+#Must convert to numpy array for numpy operations
+mx_labeled = np.array(table).reshape(5,5)
+
+def select_mx_row(mx, row):
+    return mx[row]
+    #return mx[row,:]
+
+def select_mx_col(mx, col):
+    return mx[:,col]
+
+def select_mx_element(mx, col, row):
+    return mx[row, col]
+    #return mx[row][col]
+
 if __name__ == "__main__":
     print("Numpy operations available")
 
@@ -56,6 +79,8 @@ if __name__ == "__main__":
     print(lin2)
     print(lin3)
 
-    bell_curve = gen_random_normal_dist(200)
+    print(mx_labeled)
+    print('1,2:', mx_labeled[1,2])
+    print('4,0:', mx_labeled[4,0])
     
 
