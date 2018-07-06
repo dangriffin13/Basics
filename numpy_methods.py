@@ -72,6 +72,14 @@ def select_mx_element(mx, col, row):
     return mx[row, col]
     #return mx[row][col]
 
+def mask_mx_row(mx, row): #exclude elements without modifying underlying data
+    mx.mask[row] = True
+    return mx
+
+#boolean conditional selection
+def mx_less_than(mx, value):
+    return mx[mx<value]
+
 if __name__ == "__main__":
     print("Numpy operations available")
 
