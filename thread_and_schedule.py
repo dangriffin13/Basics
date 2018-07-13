@@ -24,8 +24,20 @@ def basic_thread():
     threadObj.start()
     print("End of first thread")
 
+#pass args to thread
+def delayed_sum(*args):
+    total = sum([arg for arg in args])
+    print("Total has been summed")
+    time.sleep(5)
+    print('Sum: ', total)
 
 
+def initiate_sum(*args):
+    print("Initiating")
+    #Do not pass args directly to function.  This returns the function immediately
+    threadObj = threading.Thread(target=delayed_sum, args=args)  
+    threadObj.start()
+    print("End of initiation")
 
 
 if __name__ == "__main__":
