@@ -13,6 +13,12 @@ def zip_two_inputs(iterable1, iterable2):
         print(item)
 
 
+def find_locations_of_value(arr, value):
+    locations = []
+    for i, j in enumerate(arr):
+        if j == value:
+            locations.append(i)
+
 
 if __name__ == "__main__":
     print('Zip and enumerate functions are ready')
