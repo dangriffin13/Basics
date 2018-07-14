@@ -33,6 +33,8 @@ mx_rand = np.random.rand(3,3)
 #random values with range [low, high): low, high, n
 arr_randint = np.random.randint(0,100,30)
 
+#Gaussian distribution, mean of 0 and variance of 1
+arr_normal_distribution = np.random.randn(50)
 
 #change shape of matrix; must have correct number of elements
 arr_reshape = arr_randint.reshape(3, 10)
