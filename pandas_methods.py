@@ -18,8 +18,6 @@ kvp = {'a':'adam', 'b':'bob', 'c':'chris', 'd':'dan', 'e':'evan'}
 
 ser_from_dict = pd.Series(kvp)
 
-seed = pd.Series(np.random.randint(0,100,50))
-
 new_idx = [i for i in range(1,101,2)]
 
 np_arr_2d = [[11,12,13,14],
@@ -56,12 +54,16 @@ def rename_columns(df, name_dict): #use a dictionary {'old_col': 'new_col'}
     df.rename(columns=name_dict, inplace=True)
     return df
 
+    #single column
+    #df.rename(columns={'original':'new'}, inplace=True) 
+
 def rename_cols_with_lambda(df):
     df.rename(columns=lambda x: x.strip(), inplace=True) #remove padding
     return df
 
 def change_column_headings(df, headings):
     df.columns = headings #list method; key:val is better practice
+
 
 
 def change_column_order(df, ordered_columns):
@@ -73,11 +75,63 @@ def change_column_order(df, ordered_columns):
 DATAFRAME OPERATIONS
 '''
 
+seed = np.random.randint(0,100,16)
 
+eight_two = seed.reshape(8,2)  #pd.series cannot be reshaped
+two_eight = seed.reshape(2,8)
+four_four = pd.DataFrame(seed.reshape(4,4))
+
+df4 = four_four
+
+disciplines = ['Math', 'History', 'English', 'Science']
+students = ['A', 'B', 'C', 'D']
+
+df4['Students'] = students
+df4.set_index('Students', inplace=True)
+df4.columns = disciplines
+
+#retrieve row
+iloc_0 = df4.iloc[0] #integer index, returns row 
+loc_0 = df4.loc['A'] #named index returns row
+
+df5 = df4.copy()
+
+#append column
+df5['E'] = np.random.randint(0,100,4)
+
+#append row
+df5.loc['E'] = np.random.randint(0,100,5) #5 columns due to column append above
+
+#rename column
+df5.rename(columns={'E':'Music'}, inplace=True)
+
+
+#append using df.loc and df.index.max + 1 when you don't know the integer range
+
+
+#append row using append method
+
+
+#seed dataframe one row at a time using dictionary method
+'''append creates a new copy of dataframe every time, so for performance reasons it is bettr to prepare a list of lists or list of dicts beforehand to seed the dataframe'''
+
+
+def get_head(mx, n): #series and df only; np array invalid
+    return mx.head(n)
+
+
+def melt_columns():
+    pass
+
+
+def pivot_table():
+    pass
 
 
 
 if __name__ == "__main__":
     print("Kung fu pandas")
 
-    print('Series head: ', seed.head(5))
+    #print('Series head: \n', ser_from_dict.head(2))
+
+    print('Seed:\n', seed)
