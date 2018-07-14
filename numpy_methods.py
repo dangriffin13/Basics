@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+'''
+GENERATE VALUES
+'''
+
 arr_zeroes = np.zeros(5) #five zeroes
 arr_ones = np.ones(5) #fives ones
 
@@ -52,6 +56,10 @@ def plot_bell_curve():
     plt.show()
 
 
+'''
+MATRIX MANIPULATION
+'''
+
 rows = ['a','b','c','d','e']
 cols = [str(i) for i in range(1,6)]
 table = []
@@ -78,6 +86,15 @@ def mask_mx_row(mx, row): #exclude elements without modifying underlying data
     mx.mask[row] = True
     return mx
 
+three_by_two = [[1,2],
+                [13,14],
+                [25,26]
+                ]
+
+def mx_transpose(mx):
+    transposed = np.transpose(mx)
+    return transposed
+
 #boolean conditional selection
 def mx_less_than(mx, value):
     return mx[mx<value]
@@ -90,7 +107,12 @@ if __name__ == "__main__":
     print(lin3)
 
     print(mx_labeled)
-    print('1,2:', mx_labeled[1,2])
-    print('4,0:', mx_labeled[4,0])
+    #print('1,2:', mx_labeled[1,2])
+    #print('4,0:', mx_labeled[4,0])
+
+    print('3x2:')
+    print(three_by_two)
+    print('Transpose:')
+    print(mx_transpose(three_by_two))
     
 
