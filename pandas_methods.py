@@ -2,19 +2,39 @@
 import numpy as np
 import pandas as pd
 
+
+'''
+BASIC SERIES AND DATAFRAME CREATION
+'''
+
+ser_no_index = pd.Series([9,0,7,8,3])
+
 index = ['a','b','c','d']
 vals = ['100','3.14','2.71','32']
 
 ser = pd.Series(vals, index)
 
-ser_no_index = pd.Series([9,0,7,8,3])
+kvp = {'a':'adam', 'b':'bob', 'c':'chris', 'd':'dan', 'e':'evan'}
 
-df = pd.DataFrame(np.random.randn(50))
+ser_from_dict = pd.Series(kvp)
+
+seed = pd.Series(np.random.randint(0,100,50))
 
 new_idx = [i for i in range(1,101,2)]
 
+np_arr_2d = [[11,12,13,14],
+            [25,26,27,28]]
+
+df_2d = pd.DataFrame(np_arr_2d)
+
+transposed = np.transpose(np_arr_2d)
+
+df_transposed = pd.DataFrame(transposed)
+
+
+
 '''
-Index and Column Manipulation
+INDEX AND COLUMN MANIPULATION
 '''
 
 #use a column as the index
@@ -26,7 +46,7 @@ def first_col_as_index(df, index):
 
 def use_original_index(df):
     df.reset_index() 
-    #df.reset_index(drop=True) #deletes column
+    #df.reset_index(drop=True) #drop/delete the column that was serving as index
 
 def change_to_new_index(df, vals):
     df_reindex = df.reindex(vals) #cannot reindex inplace
@@ -49,6 +69,15 @@ def change_column_order(df, ordered_columns):
     return df_ordered_cols
 
 
+'''
+DATAFRAME OPERATIONS
+'''
+
+
+
+
 
 if __name__ == "__main__":
     print("Kung fu pandas")
+
+    print('Series head: ', seed.head(5))
