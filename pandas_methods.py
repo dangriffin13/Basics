@@ -100,20 +100,37 @@ df5 = df4.copy()
 df5['E'] = np.random.randint(0,100,4)
 
 #append row
-df5.loc['E'] = np.random.randint(0,100,5) #5 columns due to column append above
+df5.loc['E'] = np.random.randint(0,100,5)
 
 #rename column
 df5.rename(columns={'E':'Music'}, inplace=True)
 
 
-#append using df.loc and df.index.max + 1 when you don't know the integer range
-
-
 #append row using append method
+append_df1 = pd.DataFrame([[1,2],[13,14]],columns=['Alpha','Beta'])
+append_df2 = pd.DataFrame([[35,36],[47,48]],columns=['Alpha','Beta'])
+
+def append_dataframes(df1, df2):
+    df1 = df1.append(df2)
+    #df1.append(df2, ignore_index=True) #ignore second df's index
+    return df1
 
 
-#seed dataframe one row at a time using dictionary method
+#append dataframe one row at a time using one concat
 '''append creates a new copy of dataframe every time, so for performance reasons it is bettr to prepare a list of lists or list of dicts beforehand to seed the dataframe'''
+def concat_dataframe(df1, new_data):
+    cols = new_data[0]
+    df_new = []
+    for row in new_data[1:]:
+        
+        next_dict = {}
+        for i in len(row):
+            next_dict.update({cols[i] = row[i]})
+
+        df_new.append(next_dict)
+
+    return df1.concat(pd.DataFrame(df_new, ignore_index=True))
+
 
 
 def get_head(mx, n): #series and df only; np array invalid
