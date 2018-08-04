@@ -29,6 +29,9 @@ transposed = np.transpose(np_arr_2d)
 
 df_transposed = pd.DataFrame(transposed)
 
+#convert df back into numpy array
+df_to_arr = dr_2d.values
+
 
 
 '''
@@ -94,6 +97,10 @@ df4.columns = disciplines
 iloc_0 = df4.iloc[0] #integer index, returns row 
 loc_0 = df4.loc['A'] #named index returns row
 
+#retrieve column
+col_0 = df4['Math']
+
+#store a copy to do operations on it
 df5 = df4.copy()
 
 #append column
@@ -105,6 +112,20 @@ df5.loc['E'] = np.random.randint(0,100,5)
 #rename column
 df5.rename(columns={'E':'Music'}, inplace=True)
 
+#sort by column
+df5.sort_values('Music', axis=0, ascending=False)
+
+#mean and standard dev
+df['Student Overall'] = df.mean(axis=1)
+subject_means = df.mean(axis=0)
+
+#dealing with null data
+df.isnull() #booleans
+df.isnull().sum() #nulls by column
+df.isnull().sum()sum() #nulls in the entire df
+
+df['row'] = df['row'].fillna(0) #replace NaN with zero
+df = df.dropna(axis=0) #remove all rows with NaN
 
 #append row using append method
 append_df1 = pd.DataFrame([[1,2],[13,14]],columns=['Alpha','Beta'])
@@ -121,6 +142,7 @@ def append_dataframes(df1, df2):
 def concat_dataframe(df1, new_data):
     cols = new_data[0]
     df_new = []
+
     for row in new_data[1:]:
         
         next_dict = {}
