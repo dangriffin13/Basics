@@ -136,6 +136,16 @@ def append_dataframes(df1, df2):
     #df1.append(df2, ignore_index=True) #ignore second df's index
     return df1
 
+#classify data into bins
+bins = [0,25,50,75,100]
+names = ['Fourth quartile', 'Third quartile', 'Second quartile','First quartile']
+
+def create_bins(df, bins, labels):
+    binned_df = pd.cut(df, bins, labels=names)
+    return binned_df
+
+#create_bins(df5, bins, names)
+
 
 #append dataframe one row at a time using one concat
 '''append creates a new copy of dataframe every time, so for performance reasons it is bettr to prepare a list of lists or list of dicts beforehand to seed the dataframe'''
