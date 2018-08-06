@@ -35,7 +35,7 @@ df_to_arr = dr_2d.values
 
 
 '''
-INDEX AND COLUMN MANIPULATION
+INDEX AND COLUMN ORDER/LABEL MANIPULATION
 '''
 
 #use a column as the index
@@ -115,6 +115,15 @@ df5.rename(columns={'E':'Music'}, inplace=True)
 #sort by column
 df5.sort_values('Music', axis=0, ascending=False)
 
+#append row using append method
+append_df1 = pd.DataFrame([[1,2],[13,14]],columns=['Alpha','Beta'])
+append_df2 = pd.DataFrame([[35,36],[47,48]],columns=['Alpha','Beta'])
+
+def append_dataframes(df1, df2):
+    df1 = df1.append(df2)
+    #df1.append(df2, ignore_index=True) #ignore second df's index
+    return df1
+
 #mean and standard dev
 df['Student Overall'] = df.mean(axis=1)
 subject_means = df.mean(axis=0)
@@ -127,14 +136,7 @@ df.isnull().sum()sum() #nulls in the entire df
 df['row'] = df['row'].fillna(0) #replace NaN with zero
 df = df.dropna(axis=0) #remove all rows with NaN
 
-#append row using append method
-append_df1 = pd.DataFrame([[1,2],[13,14]],columns=['Alpha','Beta'])
-append_df2 = pd.DataFrame([[35,36],[47,48]],columns=['Alpha','Beta'])
 
-def append_dataframes(df1, df2):
-    df1 = df1.append(df2)
-    #df1.append(df2, ignore_index=True) #ignore second df's index
-    return df1
 
 #classify data into bins
 bins = [0,25,50,75,100]
@@ -144,7 +146,18 @@ def create_bins(df, bins, labels):
     binned_df = pd.cut(df, bins, labels=names)
     return binned_df
 
-#create_bins(df5, bins, names)
+#select row with max/min in column
+def get_col_max(df, column):
+    return df.loc[df[column].idxmax()]
+
+def get_col_min(df, column):
+    return df.loc[df[column].idxmin()]
+
+
+'''
+RESTRUCTURING DATAFRAMES
+'''
+
 
 
 #append dataframe one row at a time using one concat
