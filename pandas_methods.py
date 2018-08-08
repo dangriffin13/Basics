@@ -96,9 +96,14 @@ df4.columns = disciplines
 #retrieve row
 iloc_0 = df4.iloc[0] #integer index, returns row 
 loc_0 = df4.loc['A'] #named index returns row
+ix_0_label = df4.ix['A'] #deprecated
+ix_0_int = df4.ix[0] #deprecated
 
 #retrieve column
 col_0 = df4['Math']
+
+#ix to mix int and label
+first_cell = df.ix[0, 'Math'] #deprecated
 
 #store a copy to do operations on it
 df5 = df4.copy()
@@ -121,7 +126,7 @@ append_df2 = pd.DataFrame([[35,36],[47,48]],columns=['Alpha','Beta'])
 
 def append_dataframes(df1, df2):
     df1 = df1.append(df2)
-    #df1.append(df2, ignore_index=True) #ignore second df's index
+    # df1.append(df2, ignore_index=True) #ignore second df's index
     return df1
 
 #mean and standard dev
