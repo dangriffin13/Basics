@@ -80,6 +80,11 @@ def write_json_to_text(filename, content):
     f.writelines(content)
     f.close()
 
+
+def convert_json_string_to_dict(json_data):
+    parsed_json = json.loads(json_data)
+
+
 def print_nested_dictionary(d):
     for key, value in d.items():
         if isinstance(value, dict):
