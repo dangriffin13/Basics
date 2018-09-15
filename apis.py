@@ -63,6 +63,19 @@ def quandl_api_wrapper(database_code, dataset_code): #CME, CLH2018
     return response.json()
 
 
+def quandl_api_start_date(database_code, dataset_code, start_date): #CME, CLH2018
+    #start date must be yyyy-mm-dd
+    quote_url = f'https://www.quandl.com/api/v3/datasets/' \
+        '{database_code}/{dataset_code}.json?start_date={start_date}'
+
+    response = requests.get(quote_url + quandl_api_key)
+    return response.json()
+
+
+murl = f'https://www.quandl.com/api/v3/datasets/CME/CLH2018.json?start_date=2018-01-04&api_key=pWjXmxamqHYAMueDfPUE'
+
+#start_date={start_date}'
+
 #Census
 
 """
@@ -86,6 +99,8 @@ census_base_url = 'https://api.census.gov/data'
 
 census_query = '?get='
 
+
+
 def append_dataset_codes(*args): #forward slash delimited
     codes = ''.join(["/" + arg for arg in args])
     return codes
@@ -94,7 +109,12 @@ def append_dataset_variables(*args): #comma delimited
     variables = ','.join([arg for arg in args])
     return variables
 
-query_url = base_url + dataset_parameters + census_query
+def set_dataset_parameters(*args):
+    pass
+
+#dataset_parameters = set_dataset_parameters()
+
+#query_url = census_base_url + dataset_parameters + census_query
 
 
 if __name__ == "__main__":
