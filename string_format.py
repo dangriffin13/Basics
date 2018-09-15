@@ -18,6 +18,16 @@ def f_method_with_dictionary(dictionary):
 
 john = {'user': 'John', 'status': 'Active'}
 
+
+#split string over multiple lines
+s1 = "This is a string separated " \
+    "by a forward slash"
+
+s2 = """This is a multiline string
+        contained within triple quotes
+        which allows for many 
+        consecutive lines"""
+
 if __name__ == "__main__":
     string = input('Enter a string: ')
 
