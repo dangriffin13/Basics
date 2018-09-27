@@ -30,7 +30,7 @@ transposed = np.transpose(np_arr_2d)
 df_transposed = pd.DataFrame(transposed)
 
 #convert df back into numpy array
-df_to_arr = dr_2d.values
+df_to_arr = df_2d.values
 
 
 
@@ -103,7 +103,7 @@ ix_0_int = df4.ix[0] #deprecated
 col_0 = df4['Math']
 
 #ix to mix int and label
-first_cell = df.ix[0, 'Math'] #deprecated
+first_cell = df4.ix[0, 'Math'] #deprecated
 
 #store a copy to do operations on it
 df5 = df4.copy()
@@ -130,16 +130,20 @@ def append_dataframes(df1, df2):
     return df1
 
 #mean and standard dev
-df['Student Overall'] = df.mean(axis=1)
-subject_means = df.mean(axis=0)
+df5['Student Overall'] = df5.mean(axis=1)
+subject_means = df5.mean(axis=0)
 
 #dealing with null data
-df.isnull() #booleans
-df.isnull().sum() #nulls by column
-df.isnull().sum()sum() #nulls in the entire df
+def identify_nulls(df):
+    df.isnull() #entire df in booleans
+    df.isnull().sum() #count of  nulls by column
+    df.isnull().sum().sum() #count of nulls in the entire df
 
-df['row'] = df['row'].fillna(0) #replace NaN with zero
-df = df.dropna(axis=0) #remove all rows with NaN
+def replace_nan(df):
+    df['row'] = df['row'].fillna(0) #replace NaN with zero
+
+def remove_nan(df):
+    df = df.dropna(axis=0) #remove all rows with NaN
 
 
 
@@ -175,7 +179,7 @@ def concat_dataframe(df1, new_data):
         
         next_dict = {}
         for i in len(row):
-            next_dict.update({cols[i] = row[i]})
+            next_dict.update({cols[i]: row[i]})
 
         df_new.append(next_dict)
 
