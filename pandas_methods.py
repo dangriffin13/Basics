@@ -194,9 +194,29 @@ def get_head(mx, n): #series and df only; np array invalid
 def melt_columns():
     pass
 
+pivot_data = [
+    ['Date','ID','Total'],
+    ['2018-01-01','001',100],
+    ['2018-01-01','002',250],
+    ['2018-01-01','003',500],
+    ['2018-01-02','001',100],
+    ['2018-01-02','002',150],
+    ['2018-01-02','003',2000],
+    ['2018-01-03','001',1000],
+    ['2018-01-03','002',700],
+    ['2018-01-03','003',50],
+    ['2018-01-04','001',900],
+    ['2018-01-04','002',200],
+    ['2018-01-04','003',3000]
+]
 
-def pivot_table():
-    pass
+pivot_df = pd.DataFrame(pivot_data[1:])
+pivot_df.columns = pivot_data[0]
+
+#pivot_table(pivot_df,'Date','ID','Total')
+def pivot_table(df, index, cols, values):
+    df = df.pivot(index=index,columns=cols,values=values)
+    return df
 
 
 
