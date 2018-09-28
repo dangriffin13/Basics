@@ -191,9 +191,6 @@ def get_head(mx, n): #series and df only; np array invalid
     return mx.head(n)
 
 
-def melt_columns():
-    pass
-
 pivot_data = [
     ['Date','ID','Total'],
     ['2018-01-01','001',100],
@@ -216,6 +213,26 @@ pivot_df.columns = pivot_data[0]
 #pivot_table(pivot_df,'Date','ID','Total')
 def pivot_table(df, index, cols, values):
     df = df.pivot(index=index,columns=cols,values=values)
+    return df
+
+
+melt_data = {
+    'Weekday': ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    'Person 1': [1,2,3,4,5,6,7],
+    'Person 2': [2,4,6,8,10,12,14],
+    'Person 3': [11,12,13,14,15,16,17]
+}
+
+melt_df = pd.DataFrame(melt_data, columns=['Weekday','Person 1', 'Person 2','Person 3'])
+
+#melt_all_columns(melt_df,'Weekday', 'Person','Score')
+def melt_all_columns(df, idx_col, var_name, value_name):
+    df = pd.melt(df, id_vars=idx_col, var_name=var_name, value_name=value_name)
+    return df
+
+#melt_specific_columns(melt_df, 'Weekday',['Person 1', 'Person 2'])
+def melt_specific_columns(df, idx_col, val_cols):
+    df = pd.melt(df, id_vars=idx_col, value_vars=val_cols)
     return df
 
 
